@@ -1,125 +1,172 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Portfolio</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+@extends('index')
+@push('style')
+    <title>JOYBOY'S PORTFOLIO</title>
+@endpush
+@section('main-content')
 
-    body {
-      font-family: Arial, sans-serif;
-      background-color: rgb(85, 146, 179);
-    }
+        <nav class="navbar">
+            <div class="logo">JOYBOY'S PORTFOLIO</div>
+            <ul class="nav-links">
+               <li><a href="#home">Home</a></li>
+               <li><a href="#about-me-section">About</a></li>
+               <li><a href="#skills">Skills</a></li>
+               <li><a href="#projects">Projects</a></li>
+               <li><a href="#education">Education</a></li>
+               <li><a href="#work">Work Experience</a></li>
+              <li><a href="#contact">Contact Me</a></li>
+            </ul>
 
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background-color: #333;
-      padding: 1rem 2rem;
-      color: #fff;
-    }
+        </nav>
+  
 
-    .nav-links {
-      list-style: none;
-      display: flex;
-      gap: 1rem;
-    }
+    <section id="home" class="hero">
+        <div class="about" id="about-me-section">
+            <h2>Swapnil Dey</h2>
+            <p>I am a passionate and dedicated developer with expertise in web technologies, striving to build impactful and user-friendly applications.I am a creative thinker with a strong curiosity about technology, human emotion, and expression. You're someone who explores both artistic and technical sides</p>
+            <div class="buttons">
+                <a href="https://docs.google.com/document/d/1c0m67P28iH9UnAbBIiiICXDtJYnnORpv3RuLmLO-WyY/edit?tab=t.0">
+                      <button>View CV</button>
+                  </a>
+                </div>
+        </div>
+        <div class="profile-pic">
+            <img src="assets/profile.jpg" alt="Profile Picture of Swapnil Dey" />
+        </div>
+    </section>
 
-    .nav-links li a {
-      text-decoration: none;
-      color: rgb(211, 215, 216);
-      font-weight: bold;
-    }
+    <section id="skills" class="content-section section-padding">
+        <h2>My Skills</h2>
+        <div class="skill-item">
+            <span>HTML/CSS</span>
+            <span>Advanced</span>
+        </div>
+        <div class="skill-item">
+            <span>JavaScript</span>
+            <span>Beginer</span>
+        </div>
+        <div class="skill-item">
+            <span>PHP/Laravel</span>
+            <span>Expert</span>
+        </div>
+        <div class="skill-item">
+            <span>Database (SQL)</span>
+            <span>Advanced</span>
+        </div>
+        <div class="skill-item">
+            <span>Responsive Design</span>
+            <span>Beginner</span>
+        </div>
+    </section>
 
-    .hero {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 3rem 2rem;
-      background-color: rgb(85, 146, 179);
-    }
+    <section id="projects" class="content-section section-padding">
+        <h2>My Projects</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <h4>E-commerce Platform</h4>
+                <p>Developing a full-stack e-commerce solution with user authentication, product management, and payment gateway integration. (PHP, Laravel, MySQL, JavaScript)</p>
+                <div class="project-links">
+                    
+                    <a href="https://github.com/MahirTanzim/e-learning-platform/tree/main" target="_blank">View Project</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <h4>Portfolio Website</h4>
+                <p>Designing and built a personal portfolio site to showcase my projects and skills, focusing on clean UI/UX. (HTML, CSS, JavaScript)</p>
+                <div class="project-links">
+                    
+                    <a href="https://github.com/your-senpai-swapnil/Full-Stack-Dynamic-Portfolio" target="_blank">View Project</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <h4>Task Management App</h4>
+                <p>A simple web application for managing daily tasks with CRUD operations and user-specific data. (Node.js, Express, MongoDB)</p>
+                <div class="project-links">
+                    
+                    <a href="#" target="_blank">GitHub Repo</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    .about h2 {
-      font-size: 1.8rem;
-      margin-bottom: 0.5rem;
-    }
+    <section id="education" class="content-section section-padding">
+        <h2>Education</h2>
+        <div class="timeline-container">
+            <div class="timeline-item">
+                <div class="timeline-date">2020 - 2024</div>
+                <div class="timeline-content">
+                    <h4>B.Sc. in Computer Science & Engineering</h4>
+                    <p><strong>Daffodil International University</strong></p>
+                    <p>Relevant coursework: Data Structures, Algorithms, Web Development, Database Management.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">2018 - 2020</div>
+                <div class="timeline-content">
+                    <h4>Higher Secondary Certificate (Science)</h4>
+                    <p><strong>Govt Syed Hatem Ali College</strong></p>
+                    <p>Focused on Physics, Chemistry, Mathematics, and Biology.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    .about p {
-      font-size: 1.2rem;
-      margin-bottom: 1rem;
-    }
+    <section id="work" class="content-section section-padding">
+        <h2>Work Experience</h2>
+        <div class="timeline-container">
+            <div class="timeline-item">
+                <div class="timeline-date">Jan 2023 - Present</div>
+                <div class="timeline-content">
+                    <h4>Junior Web Developer</h4>
+                    <p><strong>ABC Solutions Ltd.</strong></p>
+                    <ul>
+                        <li>Developed and maintained responsive web applications using Laravel and Vue.js.</li>
+                        <li>Collaborated with cross-functional teams to define, design, and ship new features.</li>
+                        <li>Participated in code reviews and ensured code quality and best practices.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">May 2022 - Dec 2022</div>
+                <div class="timeline-content">
+                    <h4>Frontend Intern</h4>
+                    <p><strong>XYZ Digital Agency</strong></p>
+                    <ul>
+                        <li>Assisted in building user interfaces for client websites using HTML, CSS, and JavaScript.</li>
+                        <li>Implemented UI designs from Figma/Sketch into functional web pages.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    .buttons {
-      display: flex;
-      gap: 1rem;
-    }
+    <footer id="contact" class="content-section section-padding" style="text-align: center; background-color: var(--light-bg-primary); box-shadow: none;">
+        <h2>Contact Me</h2>
+        <p>Feel free to reach out for collaborations or just to say hello!</p>
+        <p>Email: <a href="mailto:swapnil15-3477@diu.edu.bd">swapnil15-3477@diu.edu.bd</a></p>
+        <p>LinkedIn: <a href="#" target="_blank">Swapnil Dey</a></p>
+        <p>GitHub: <a href="https://github.com/your-senpai-swapnil" target="_blank">JoyBoys GITHUB</a></p>
+        <p style="margin-top: 2rem;">&copy; 2025 Swapnil Dey. All rights reserved.</p>
+    </footer>
 
-    button {
-      padding: 0.5rem 1rem;
-      font-size: 1rem;
-      cursor: pointer;
-      border: 2px solid #333;
-      background-color: transparent;
-      transition: 0.3s;
-    }
+    <script>
+        const navLinks = document.querySelectorAll(".nav-links li a");
+        navLinks.forEach(link => {
+         link.addEventListener("click", function(event) {
+        event.preventDefault();
+        const targetId = this.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth' });
+        }
+    });
+});
 
-    button:hover {
-      background-color: #333;
-      color: white;
-    }
-
-    .profile-pic img {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      border: 3px dashed #333;
-      object-fit: cover;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <nav class="navbar">
-      <div class="logo">Portfolio</div>
-      <ul class="nav-links">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Skills</a></li>
-        <li><a href="#">Projects</a></li>
-        <li><a href="#">Education</a></li>
-        <li><a href="#">Work</a></li>
-        <li><a href="#">Contact Me</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <section class="hero">
-    <div class="about">
-      <h2>Swapnil Dey</h2>
-      <p>About Me</p>
-      <div class="buttons">
-        
-        <button>Experience</button>
-      </div>
-    </div>
-    <div class="profile-pic">
-      <img src="https://via.placeholder.com/150" alt="Profile Picture" />
-    </div>
-  </section>
-
-  <script>
-    const tags = document.querySelector(".nav-links").children;
-    for (let i = 0; i < tags.length; i++) {
-      tags[i].addEventListener("click", function(event) {
-        alert(event.target.innerText);
-      });
-    }
-  </script>
-</body>
-</html>
+      
+        const buttons = document.querySelectorAll(".buttons button");
+        buttons.forEach(button => {
+            button.addEventListener("click", function() {
+                alert(`You clicked: ${button.innerText}`);
+            });
+        });
+    </script>
+@endsection
