@@ -148,6 +148,7 @@
         <p style="margin-top: 2rem;">&copy; 2025 Swapnil Dey. All rights reserved.</p>
     </footer>
 
+    
     <script>
         const navLinks = document.querySelectorAll(".nav-links li a");
         navLinks.forEach(link => {
