@@ -89,26 +89,41 @@
     </section>
 
     <section id="education" class="content-section section-padding">
-        <h2>Education</h2>
-        <div class="timeline-container">
-            <div class="timeline-item">
-                <div class="timeline-date">2020 - 2024</div>
-                <div class="timeline-content">
-                    <h4>B.Sc. in Computer Science & Engineering</h4>
-                    <p><strong>Daffodil International University</strong></p>
-                    <p>Relevant coursework: Data Structures, Algorithms, Web Development, Database Management.</p>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-date">2018 - 2020</div>
-                <div class="timeline-content">
-                    <h4>Higher Secondary Certificate (Science)</h4>
-                    <p><strong>Govt Syed Hatem Ali College</strong></p>
-                    <p>Focused on Physics, Chemistry, Mathematics, and Biology.</p>
-                </div>
+    <h2>Education</h2>
+    <div class="timeline-container">
+
+        <div class="timeline-item">
+            <div class="timeline-date">2022 - 2025</div>
+            <div class="timeline-content">
+                <h4>B.Sc. in Computer Science & Engineering</h4>
+                <p><strong>Daffodil International University</strong></p>
+                <img src="{{ asset('assets/images/education/diu.png') }}" alt="DIU Logo" class="edu-image">
+                <p>Relevant coursework: Data Structures, Algorithms, Web Development, Database Management.</p>
             </div>
         </div>
-    </section>
+
+        <div class="timeline-item">
+            <div class="timeline-date">2018 - 2020</div>
+            <div class="timeline-content">
+                <h4>Higher Secondary Certificate (Science)</h4>
+                <p><strong>Govt Syed Hatem Ali College</strong></p>
+                <img src="{{ asset('assets/images/education/hatem-college.jpg') }}" alt="Hatem Ali College" class="edu-image">
+                <p>Focused on Physics, Chemistry, Mathematics, and Biology.</p>
+            </div>
+        </div>
+        
+
+        <div class="timeline-item">
+            <div class="timeline-date">2010 - 2017</div>
+            <div class="timeline-content">
+                <h4>Secondary School Certificate (Science)</h4>
+                <p><strong>Barisal Zilla School,Barisal</strong></p>
+                <img src="{{ asset('assets/images/education/bzs.jpg') }}" alt="Barisal Zilla School" class="edu-image">
+                <p>High School</p>
+            </div>
+        </div>
+    </div>
+</section>
 
     <section id="work" class="content-section section-padding">
         <h2>Work Experience</h2>
