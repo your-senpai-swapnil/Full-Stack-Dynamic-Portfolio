@@ -17,15 +17,20 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('name');
-            $table->string('GitHub')->nullable();
-            $table->string('Demo_website')->nullable();
-            $table->text('description')->nullable();
-            $table->json('image');
-            $table->string('category')->nullable();
+            $table->text('description');
+            $table->string('github_url')->nullable();
+            $table->string('demo_url')->nullable();
+            $table->json('images');
+            $table->enum('type', ['personal', 'client', 'academic']);
+            $table->string('reference')->nullable();
             $table->json('tools');
-            $table->string('status');
+            $table->json('keywords')->nullable();
+            $table->enum('status', ['active', 'inactive', 'in-progress']);
             $table->timestamps();
+      
         });
+
+        
     }
 
     /**

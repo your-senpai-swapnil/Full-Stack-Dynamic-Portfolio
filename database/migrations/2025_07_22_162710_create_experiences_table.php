@@ -13,18 +13,18 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('experiences', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->string('phone');
-            $table->string('avatar');
-            $table->string('student_id');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->enum('type', ['job', 'internship', 'freelance', 'volunteer']);
+            $table->string('designation');
+            $table->string('organization');
+            $table->date('from_date');
+            $table->date('to_date')->nullable();
             $table->timestamps();
         });
-    }
-    
 
+    }
 
     /**
      * Reverse the migrations.
@@ -33,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('experiences');
     }
 };
