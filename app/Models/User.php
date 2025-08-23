@@ -21,6 +21,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'phone',
+        'avatar',
+        'student_id',
     ];
 
     /**
@@ -41,4 +44,60 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Get the personal details for the user.
+     */
+    public function personalDetails()
+    {
+        return $this->hasOne(PersonalDetail::class);
+    }
+
+    /**
+     * Get the projects for the user.
+     */
+    public function projects()
+    {
+        return $this->hasMany(Project::class);
+    }
+
+    /**
+     * Get the skills for the user.
+     */
+    public function skills()
+    {
+        return $this->hasMany(Skill::class);
+    }
+
+    /**
+     * Get the education records for the user.
+     */
+    public function education()
+    {
+        return $this->hasMany(Education::class);
+    }
+
+    /**
+     * Get the achievements for the user.
+     */
+    public function achievements()
+    {
+        return $this->hasMany(Achievement::class);
+    }
+
+    /**
+     * Get the experiences for the user.
+     */
+    public function experiences()
+    {
+        return $this->hasMany(Experience::class);
+    }
+
+    /**
+     * Get the info for the user.
+     */
+    public function info()
+    {
+        return $this->hasOne(Info::class);
+    }
 }

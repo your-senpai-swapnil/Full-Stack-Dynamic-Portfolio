@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     @stack ('style')
 <style>
@@ -167,6 +167,52 @@
             color: var(--accent-color);
         }
 
+        /* Notification Styles */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 1rem 1.5rem;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+            z-index: 9999;
+            max-width: 400px;
+            opacity: 0;
+            transform: translateX(100%);
+            transition: all 0.3s ease;
+        }
+
+        .notification.show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .notification.success {
+            background-color: #27ae60;
+            border-left: 4px solid #2ecc71;
+        }
+
+        .notification.error {
+            background-color: #e74c3c;
+            border-left: 4px solid #c0392b;
+        }
+
+        .notification.warning {
+            background-color: #f39c12;
+            border-left: 4px solid #e67e22;
+        }
+
+        .notification .close-btn {
+            float: right;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
         @media (max-width: 768px) {
             .navbar {
                 flex-direction: column;
@@ -187,12 +233,94 @@
             .profile-pic {
                 margin-top: 20px;
             }
+
+            .notification {
+                top: 10px;
+                right: 10px;
+                left: 10px;
+                max-width: none;
+            }
         }
 
     </style>
 </head>
 <body>
+    <!-- Notification Area -->
+    @if(session('success'))
+        <div class="notification success show" id="notification">
+            {{ session('success') }}
+            <button class="close-btn" onclick="closeNotification()">&times;</button>
+        </div>
+    @endif
+
+    @if(session('error'))
+        <div class="notification error show" id="notification">
+            {{ session('error') }}
+            <button class="close-btn" onclick="closeNotification()">&times;</button>
+        </div>
+    @endif
+
+    @if(session('warning'))
+        <div class="notification warning show" id="notification">
+            {{ session('warning') }}
+            <button class="close-btn" onclick="closeNotification()">&times;</button>
+        </div>
+    @endif
+
    @yield('main-content')
+
    <script src = "https://code.jquery.com/jquery-3.6.0.min.js"></script>
+   <script>
+        // Notification functions
+        function closeNotification() {
+            const notification = document.getElementById('notification');
+            if (notification) {
+                notification.classList.remove('show');
+                setTimeout(() => {
+                    notification.remove();
+                }, 300);
+            }
+        }
+
+        // Auto-close notifications after 5 seconds
+        document.addEventListener('DOMContentLoaded', function() {
+            const notification = document.getElementById('notification');
+            if (notification) {
+                setTimeout(function() {
+                    closeNotification();
+                }, 5000);
+            }
+        });
+
+        // Show notification function for JavaScript use
+        function showNotification(message, type = 'success') {
+            // Remove existing notification
+            const existingNotification = document.getElementById('notification');
+            if (existingNotification) {
+                existingNotification.remove();
+            }
+
+            // Create new notification
+            const notification = document.createElement('div');
+            notification.id = 'notification';
+            notification.className = `notification ${type}`;
+            notification.innerHTML = `
+                ${message}
+                <button class="close-btn" onclick="closeNotification()">&times;</button>
+            `;
+
+            document.body.appendChild(notification);
+
+            // Show notification
+            setTimeout(() => {
+                notification.classList.add('show');
+            }, 100);
+
+            // Auto-close after 5 seconds
+            setTimeout(() => {
+                closeNotification();
+            }, 5000);
+        }
+   </script>
 </body>
 </html>

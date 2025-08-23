@@ -17,14 +17,15 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->string('phone');
-            $table->string('avatar');
-            $table->string('student_id');
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password'); // This was missing in your original migration
+            $table->string('phone')->nullable();
+            $table->string('avatar')->nullable();
+            $table->string('student_id')->nullable();
+            $table->rememberToken();
             $table->timestamps();
         });
     }
-    
-
 
     /**
      * Reverse the migrations.

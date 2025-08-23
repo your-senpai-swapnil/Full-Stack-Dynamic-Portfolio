@@ -30,7 +30,8 @@ class AuthController extends Controller
 
         Auth::login($user);
 
-        return redirect()->route('dashboard');
+        // Redirect to home page instead of dashboard
+        return redirect('/')->with('success', 'Registration successful! Welcome to the portfolio.');
     }
 
     public function showLoginForm()
@@ -40,16 +41,23 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->route('dashboard');
+
+            // Redirect to home page instead of dashboard
+            return redirect('/')->with('success', 'Login successful! Welcome back.');
         }
 
         return back()->withErrors([
             'email' => 'Invalid credentials.',
-        ]);
+        ])->withInput($request->only('email'));
     }
 
     public function dashboard()
@@ -62,6 +70,7 @@ class AuthController extends Controller
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect('/');
+
+        return redirect('/')->with('success', 'You have been logged out successfully.');
     }
 }
